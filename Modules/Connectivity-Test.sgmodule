@@ -1,0 +1,9 @@
+#!name=服务连通性面板
+#!desc=在 Surge 面板中显示 ChatGPT, Google, Netflix, Zoom, Telegram 的连接状态。
+#!system=ios
+
+[Panel]
+连通性测试 = script-name=ConnectivityTest, title="服务连通性测试", content="正在刷新...", update-interval=600
+
+[Script]
+ConnectivityTest = type=generic, script-path=https://cdn.jsdelivr.net/gh/cheeseher/MyProxy@main/Scripts/connectivity_test.js
