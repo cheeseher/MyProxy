@@ -295,8 +295,14 @@
                 <p>安装模块以启用高级功能 (TikTok 解锁、连通性测试等)。</p>
 
                 <!-- TikTok Module -->
-                <h3 class="mt-4">🎵 TikTok 解锁 (必装)</h3>
-                <p class="small text-muted">解决黑屏、锁区问题，支持换区 (美国/日本等)。</p>
+                <h3 class="mt-4">🎵 TikTok 解锁 (核心功能)</h3>
+                <div class="alert alert-warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <strong>核心步骤 (必读)：</strong><br>
+                    使用前必须先<strong>卸载 TikTok</strong>，安装模块并配置好证书后，再重新去 App Store 下载。
+                </div>
+
+                <p class="small text-muted mb-2">一键安装 (Semporia 2025 纯净版 / 默认美区)</p>
                 <div class="module-install">
                     <div class="code-block">
                         <code
@@ -304,6 +310,26 @@
                         <button class="copy-btn" onclick="copyModuleUrl('tiktok-url')" title="复制">
                             <i class="fa-regular fa-copy"></i>
                         </button>
+                    </div>
+                </div>
+
+                <div class="accordion mt-3">
+                    <div class="accordion-item">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>📖 查看详细使用教程 (Step-by-Step)</span>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <ol class="step-list small">
+                                <li><strong>卸载 App</strong>: 删除此时手机上已有的 TikTok。</li>
+                                <li><strong>安装模块</strong>: 复制上方链接 -> Surge -> 模块 -> 安装新模块。</li>
+                                <li><strong>检查证书</strong>: 确保 MitM 证书已安装并已信任 (设置 -> 通用 -> 关于本机 -> 证书信任设置)。</li>
+                                <li><strong>开启 VPN</strong>: 启动 Surge。</li>
+                                <li><strong>重装 App</strong>: 下载 TikTok 并注册/登录。此时应无黑屏。</li>
+                                <li><strong>换区说明</strong>: 如需切换日本/台湾，请编辑模块内容，修改 `[URL Rewrite]` 中的 `US` 为 `JP` 或 `TW`。
+                                </li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
 
