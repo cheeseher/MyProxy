@@ -72,3 +72,6 @@ A: 请确认您在电脑上执行了 `git push` 操作，并且 GitHub 网页上
 
 **Q: 里面的节点订阅链接需要更新吗？**
 A: 不需要。`By-Shane.conf` 里只是引用了您的机场订阅地址（`policy-path`）。只要机场不跑路，节点列表会自动通过 Surge 的后台策略更新机制刷新，与这个配置文件本身的更新是分开的。
+
+**Q: 为什么 TikTok 还是黑屏或无法使用？**
+A: **TikTok 必须安装模块！** 主配置只负责分流。请在 Surge 首页点击 **"模块"** -> **"安装新模块"** -> 粘贴 `Modules/TikTokUnlock.sgmodule` 的 GitHub Raw 链接 (详见 README)。
