@@ -176,7 +176,12 @@ Surge 提供了强大的抓包功能，但**普通用户日常使用无需开启
 
 ---
 
-## ❓ 9. 常见问题 (Q&A)
+### 📦 扩展模块 (Modules)
+*   **TikTok Unlock (2025/US)**: 解决黑屏/锁区。
+    *   安装链接: `https://raw.githubusercontent.com/cheeseher/MyProxy/main/Modules/TikTokUnlock.sgmodule`
+*   **Connectivity Test**: 连通性测试面板。
+
+### 🚨 常见问题 (Quick Q&A)
 
 **Q: 为什么 Telegram 语音还是偶尔会断？**
 A: 请检查 `电报消息` 策略组是否选了 `自动选择`。请改为手动选择一个固定的 `新加坡` 节点。另外，确保您使用的节点支持 UDP（通常 IEPL/IPLC 专线都支持）。
