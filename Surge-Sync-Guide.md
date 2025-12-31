@@ -9,56 +9,47 @@
 
 ---
 
-## 2. 获取托管链接 (Raw URL)
+## 2. 最佳实践：分离式配置 (Detached Profile)
 
-Surge 只能识别纯文本格式的配置文件。
+为了既能**自动同步云端规则** (如 TikTok 修复)，又能**保护您的私有订阅** (且不被更新覆盖)，我们强烈建议使用 **"本地引用云端" (`#!include`)** 的方式。
 
-*   **您的仓库**: `cheeseher/MyProxy`
-*   **分支**: `main`
-*   **文件名**: `By-Shane.conf`
+### 核心原理
+*   **云端 (By-Shane.conf)**: 包含规则、脚本、MITM 逻辑 (由 Shane 维护更新)。
+*   **本地 (Local Profile)**: 您的私人配置，只包含 `#!include` 引用于订阅链接。
 
-**✅ 您的专属导入链接**:
-```text
-https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
+---
+
+## 3. iOS/Mac 设置步骤
+
+### 第一步：准备配置模板 (只需一次)
+
+1.  打开 **Surge** -> **创建新配置** -> **创建文本配置 (Create Text Profile)**。
+2.  清空编辑器中的所有内容。
+3.  复制并粘贴以下模板代码：
+
+```ini
+#!name=Shane 托管配置 (Auto)
+#!desc=自动同步云端规则 + 本地私有订阅
+#!author=Shane
+
+[General]
+# ⬇️ 核心：引用云端主配置 (保持最新)
+#!include = https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
+
+[Proxy Group]
+# ⬇️ 覆盖：填入您的机场订阅链接 (不会被云端更新覆盖)
+我的订阅 = select, policy-path=在此处粘贴您的机场订阅链接, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0
 ```
 
-> ⚠️ **重要提示**: 
-> 1. 请确保您的 GitHub 仓库是 **Public (公开)** 的。如果是 Private (私有) 仓库，此链接将无法直接访问（返回 404）。
-> 2. 如果必须使用私有仓库，您需要创建一个 GitHub Personal Access Token (PAT)，并将链接改为：`https://token@raw.githubusercontent.com/...` 格式。
+### 第二步：填入订阅
+1.  找到代码中的 `policy-path=...` 部分。
+2.  将 `在此处粘贴您的机场订阅链接` 替换为您购买的机场订阅 URL (通常是类似 `https://api.v1.club/...` 的链接)。
+3.  点击 **"完成" (Done)** 保存。
 
----
-
-## 3. iOS 端操作步骤
-
-### 第一步：首次导入
-1.  复制上面的 **专属导入链接**。
-2.  打开 **Surge iOS**。
-3.  点击左上角的 **配置名称**（例如 "Default"）进入配置列表页。
-4.  点击底部的 **"从 URL 下载配置" (Download Profile from URL)**。
-5.  粘贴链接，点击 **"完成"**。
-6.  Surge 会自动下载并应用新配置。
-
-### 第二步：日常同步 (更新)
-当您在电脑上修改了配置并推送到 GitHub 后，手机上不会毫秒级自动变更（为了稳定性），需要您手动刷新一下：
-
-1.  打开 **Surge iOS**。
-2.  点击左上角的 **配置名称** 进入列表。
-3.  找到 `By-Shane` 配置。
-4.  **长按** 该配置，选择 **"立即更新" (Update Now)**。
-    *   *或者：如果配置图标旁有 "更新" 按钮，直接点击即可。*
-5.  等待几秒，提示 "更新成功" 即可应用最新规则。
-
----
-
-## 4. Mac 端操作步骤
-
-Mac 端同样适用此逻辑：
-
-1.  打开 **Surge Mac** 主界面。
-2.  点击左下角的 **配置列表** 图标。
-3.  选择 **"安装托管配置..." (Install Managed Configuration...)**。
-4.  粘贴上面的 URL。
-5.  以后每次启动 Surge Mac，它都会自动检查更新。您也可以右键点击配置选择 **"立即更新"**。
+### 第三步：验证与自动更新
+*   **验证**: 切换到该配置并启动 Surge。在 "策略组" 页面，应该能看到 "我的订阅" 已经加载了节点，且 "TikTok" 等规则组也已出现。
+*   **更新**: 未来当 Shane 更新了云端规则 (如修复 TikTok)，您的 Surge 会在后台自动静默更新 `#!include` 的内容，您**无需任何操作**。
+*   如果您想强制更新，只需在 Surge 首页长按该配置 -> **"立即更新外部资源"**。
 
 ---
 
