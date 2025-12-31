@@ -1,0 +1,16 @@
+#!name=TikTok Unlock (2025 Verified)
+#!desc=Remove TikTok region restrictions. Requires MITM.
+#!system=ios
+
+[MITM]
+hostname = %APPEND% *.tiktokv.com, *.byteoversea.com, *.tik-tokapi.com, *.byteoversea.net, *.ibytedtos.com, *.ibyteimg.com, *.tiktokcdn.com, *.tiktokv.us, *.tiktokcdn-us.com, *.musical.ly, *.snssdk.com
+
+[URL Rewrite]
+(?<=_region=)CN(?=&) JP 307
+(?<=&mcc_mnc=)4 2 307
+^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+) $1$3 302
+(^https?:\/\/*\.\w{4}okv\.com\/.+&.+)(\d{2}\.3\.\d)(.+) $118.0$3 302
+
+[Script]
+# Semporia Unlock Script (Stable)
+TikTok Unlock = type=http-response,pattern=^https:\/\/api[\w-]*\.tiktokv\.com\/aweme\/v\d\/policy\/notice\/,requires-body=1,script-path=https://raw.githubusercontent.com/Semporia/TikTok-Unlock/master/TikTok-Unlock.js,script-update-interval=0
