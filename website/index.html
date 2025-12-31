@@ -296,38 +296,44 @@
 
                 <!-- TikTok Module -->
                 <h3 class="mt-4">🎵 TikTok 解锁 (核心功能)</h3>
-                <div class="alert alert-warning">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <strong>核心步骤 (必读)：</strong><br>
-                    使用前必须先<strong>卸载 TikTok</strong>，安装模块并配置好证书后，再重新去 App Store 下载。
+                <p class="small text-muted mb-3" style="margin-top: -0.3rem;">Semporia 2025 纯净版 / 默认美区 (US)</p>
+
+                <!-- 核心提示 -->
+                <div class="alert alert-warning" style="padding: 0.8rem; border-left: 4px solid #FF9500;">
+                    <strong style="display:block; margin-bottom:0.3rem;">⚠️ 核心必读 (Core Step)</strong>
+                    <span style="font-size: 0.9rem; opacity: 0.9">使用前必须先 <strong>卸载 TikTok</strong>，安装模块并信任证书后，再重新下载
+                        App。</span>
                 </div>
 
-                <p class="small text-muted mb-2">一键安装 (Semporia 2025 纯净版 / 默认美区)</p>
+                <!-- 安装区域 -->
                 <div class="module-install">
                     <div class="code-block">
                         <code
                             id="tiktok-url">https://raw.githubusercontent.com/cheeseher/MyProxy/main/Modules/TikTokUnlock.sgmodule</code>
-                        <button class="copy-btn" onclick="copyModuleUrl('tiktok-url')" title="复制">
+                        <button class="copy-btn" onclick="copyModuleUrl('tiktok-url')" title="复制链接">
                             <i class="fa-regular fa-copy"></i>
                         </button>
                     </div>
                 </div>
 
+                <!-- 详细教程折叠 -->
                 <div class="accordion mt-3">
                     <div class="accordion-item">
                         <div class="accordion-header" onclick="toggleAccordion(this)">
-                            <span>📖 查看详细使用教程 (Step-by-Step)</span>
+                            <span>📖 详细教程 (Step-by-Step Guide)</span>
                             <i class="fa-solid fa-chevron-down"></i>
                         </div>
                         <div class="accordion-content">
-                            <ol class="step-list small">
-                                <li><strong>卸载 App</strong>: 删除此时手机上已有的 TikTok。</li>
-                                <li><strong>安装模块</strong>: 复制上方链接 -> Surge -> 模块 -> 安装新模块。</li>
-                                <li><strong>检查证书</strong>: 确保 MitM 证书已安装并已信任 (设置 -> 通用 -> 关于本机 -> 证书信任设置)。</li>
-                                <li><strong>开启 VPN</strong>: 启动 Surge。</li>
-                                <li><strong>重装 App</strong>: 下载 TikTok 并注册/登录。此时应无黑屏。</li>
-                                <li><strong>换区说明</strong>: 如需切换日本/台湾，请编辑模块内容，修改 `[URL Rewrite]` 中的 `US` 为 `JP` 或 `TW`。
+                            <ol class="step-list small" style="margin-top: 0.5rem; line-height: 1.8;">
+                                <li><strong>卸载 App</strong>: <span class="text-secondary">删除此时手机上的 TikTok。</span></li>
+                                <li><strong>安装模块</strong>: <span class="text-secondary">复制上方链接 -> Surge -> 模块 ->
+                                        安装新模块。</span></li>
+                                <li><strong>检查证书</strong>: <span class="text-secondary">确保 MitM 证书已安装并已在系统设置中信任。</span>
                                 </li>
+                                <li><strong>重装 App</strong>: <span class="text-secondary">去 App Store 下载 TikTok
+                                        并登录。</span></li>
+                                <li><strong>如何换区</strong>: <span class="text-secondary">编辑模块 -> URL Rewrite -> 修改 US 为
+                                        JP/TW。</span></li>
                             </ol>
                         </div>
                     </div>
