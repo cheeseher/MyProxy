@@ -84,7 +84,7 @@ udp-policy-not-supported-behaviour = DIRECT
 
 ### 5.1 托管地址
 配置已推送到您的 GitHub 仓库：
-`https://raw.githubusercontent.com/cheeseher/MyProxy/main/Surge-Dual.conf`
+`https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf`
 
 ### 5.2 终端代理建议 (Mac 必做)
 为了让终端工具 (Git, Curl) 也能享受代理加速，建议在 `~/.zshrc` 中添加：

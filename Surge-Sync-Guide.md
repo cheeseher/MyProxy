@@ -15,11 +15,11 @@ Surge 只能识别纯文本格式的配置文件。
 
 *   **您的仓库**: `cheeseher/MyProxy`
 *   **分支**: `main`
-*   **文件名**: `Surge-Dual.conf`
+*   **文件名**: `By-Shane.conf`
 
 **✅ 您的专属导入链接**:
 ```text
-https://raw.githubusercontent.com/cheeseher/MyProxy/main/Surge-Dual.conf
+https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
 ```
 
 > ⚠️ **重要提示**: 
@@ -43,7 +43,7 @@ https://raw.githubusercontent.com/cheeseher/MyProxy/main/Surge-Dual.conf
 
 1.  打开 **Surge iOS**。
 2.  点击左上角的 **配置名称** 进入列表。
-3.  找到 `Surge-Dual` 配置。
+3.  找到 `By-Shane` 配置。
 4.  **长按** 该配置，选择 **"立即更新" (Update Now)**。
     *   *或者：如果配置图标旁有 "更新" 按钮，直接点击即可。*
 5.  等待几秒，提示 "更新成功" 即可应用最新规则。
@@ -71,4 +71,4 @@ A: 请检查手机是否开启了全局代理导致无法访问 GitHub，或者�
 A: 请确认您在电脑上执行了 `git push` 操作，并且 GitHub 网页上已经能看到最新的文件内容。GitHub 的 Raw 缓存通常有 1-5 分钟的延迟，稍等片刻再更新即可。
 
 **Q: 里面的节点订阅链接需要更新吗？**
-A: 不需要。`Surge-Dual.conf` 里只是引用了您的机场订阅地址（`policy-path`）。只要机场不跑路，节点列表会自动通过 Surge 的后台策略更新机制刷新，与这个配置文件本身的更新是分开的。
+A: 不需要。`By-Shane.conf` 里只是引用了您的机场订阅地址（`policy-path`）。只要机场不跑路，节点列表会自动通过 Surge 的后台策略更新机制刷新，与这个配置文件本身的更新是分开的。
