@@ -283,26 +283,45 @@
             </div>
         </section>
 
-        <!-- 4. 连通性模块 -->
+        <!-- 4. 扩展模块 -->
         <section id="modules" class="card">
             <div class="card-header">
                 <div class="icon-box bg-orange">
                     <i class="fa-solid fa-plug"></i>
                 </div>
-                <h2>4. 连通性测试面板</h2>
+                <h2>4. 扩展模块 (Modules)</h2>
             </div>
             <div class="card-body">
-                <p>内置模块支持真实地区检测（ChatGPT/Google）与精美排版。</p>
+                <p>安装模块以启用高级功能 (TikTok 解锁、连通性测试等)。</p>
+
+                <!-- TikTok Module -->
+                <h3 class="mt-4">🎵 TikTok 解锁 (必装)</h3>
+                <p class="small text-muted">解决黑屏、锁区问题，支持换区 (美国/日本等)。</p>
+                <div class="module-install">
+                    <div class="code-block">
+                        <code
+                            id="tiktok-url">https://raw.githubusercontent.com/cheeseher/MyProxy/main/Modules/TikTokUnlock.sgmodule</code>
+                        <button class="copy-btn" onclick="copyModuleUrl('tiktok-url')" title="复制">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Connectivity Module -->
+                <h3 class="mt-4">⚡️ 连通性测试</h3>
+                <p class="small text-muted">美化面板，支持真实 IP 区域检测。</p>
                 <div class="module-install">
                     <div class="code-block">
                         <code
                             id="module-url">https://cdn.jsdelivr.net/gh/cheeseher/MyProxy@main/Modules/Connectivity-Test.sgmodule</code>
-                        <button class="copy-btn" onclick="copyModuleUrl()" title="复制">
+                        <button class="copy-btn" onclick="copyModuleUrl('module-url')" title="复制">
                             <i class="fa-regular fa-copy"></i>
                         </button>
                     </div>
-                    <p class="install-tip">复制上方链接，在 Surge -> <strong>模块</strong> -> <strong>安装新模块</strong> 中粘贴即可。</p>
                 </div>
+
+                <p class="install-tip mt-3"><i class="fa-solid fa-circle-info"></i> 安装方法：复制链接 -> Surge 首页 ->
+                    <strong>模块</strong> -> <strong>安装新模块</strong>。</p>
             </div>
         </section>
 
@@ -399,8 +418,8 @@
             });
         }
 
-        function copyModuleUrl() {
-            const url = document.getElementById('module-url').innerText;
+        function copyModuleUrl(elementId) {
+            const url = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(url).then(() => {
                 alert('模块链接已复制！');
             });
