@@ -16,10 +16,17 @@ https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
 ```
 
 **操作步骤**：
-1.  打开 Surge (iOS/Mac)。
-2.  点击配置列表 -> **从 URL 下载配置** / **安装托管配置**。
-3.  粘贴上述链接并保存。
-4.  **重要**：导入后，请务必修改配置中的 `[Proxy Group]` -> `我的订阅`，填入您的机场订阅地址（如果您之前没填的话）。
+1.  **复制链接**：
+    ```text
+    https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
+    ```
+2.  **导入**：打开 Surge -> **导入配置** -> **从 URL 下载**。
+3.  **配置**：下载完成后，进入 **配置列表**，选择下载好的 `By-Shane.conf`。
+4.  **填入订阅 (关键)**：
+    *   找到策略组 `我的订阅`。
+    *   你会看到 `policy-path=INSERT_YOUR_LINK_HERE`。
+    *   **必须**将 `INSERT_YOUR_LINK_HERE` 替换为您购买的**机场订阅链接**。
+5.  **完成**：点击完成并应用配置。
 
 ---
 
@@ -122,31 +129,6 @@ Surge 提供了强大的抓包功能，但**普通用户日常使用无需开启
 
 ---
 
-## 🔄 6. 自动更新工作流 (进阶)
-
-如果您希望 **Surge 配置能自动从 GitHub 更新 (获取最新规则/脚本)**，但又**不想每次都重新填写订阅链接**，请使用此方案。
-
-### 6.1 原理
-*   **云端配置 (`By-Shane.conf`)**: 包含核心逻辑、规则、脚本。由我维护更新。
-*   **本地配置 (`Private.conf`)**: 您本地创建的空壳配置，**引用**云端配置，并**填入**您的订阅。
-
-### 6.2 设置步骤
-1.  在 Surge 配置列表，选择 **"创建新配置"** -> **"创建文本配置"**。
-2.  清空内容，粘贴以下模板：
-    ```ini
-    #!name=Shane 私有配置 (Local)
-    #!desc=引用云端逻辑，覆盖私有订阅
-
-    [General]
-    # 引用云端主配置 (自动保持最新)
-    #!include = https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
-
-    [Proxy Group]
-    # 覆盖"我的订阅"策略组，填入你的真实订阅链接
-    我的订阅 = select, policy-path=您的机场订阅链接, update-interval=0, no-alert=0, hidden=0, include-all-proxies=0
-    ```
-3.  将 `policy-path=` 后的文字替换为您真实的订阅链接。
-4.  保存并使用此配置。以后云端更新时，您只需点击"更新外部资源"或等待自动刷新即可。
 
 ## 📖 7. 快捷使用手册
 

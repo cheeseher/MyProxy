@@ -89,79 +89,31 @@
                 <div class="alert alert-success">
                     <i class="fa-solid fa-lightbulb"></i>
                     <div>
-                        <strong>推荐使用分离式导入：</strong><br>
-                        通过 <code>#!include</code> 引用云端规则。这样您既能享受<strong>自动更新</strong> (修复 TikTok
-                        等)，又不会丢失<strong>私有订阅</strong>。
+                        <strong>手动模式 (Manual Mode)：</strong><br>
+                        本配置已内置所有规则。导入后，您只需<strong>手动填入一次订阅链接</strong>即可使用。
                     </div>
                 </div>
 
                 <div class="steps">
                     <h3>操作步骤</h3>
                     <ol>
-                        <li>打开 Surge -> <strong>创建新配置</strong> -> <strong>创建文本配置</strong>。</li>
-                        <li>复制下方模板，清空编辑器并粘贴。</li>
-                        <li>将 <code>policy-path=...</code> 修改为您的机场订阅链接。</li>
+                        <li>打开 Surge -> <strong>更多</strong> -> <strong>导入配置</strong> -> <strong>从 URL 下载</strong>。</li>
+                        <li>粘贴下方配置文件链接：</li>
                     </ol>
-                </div>
-
-                <div class="code-block dropdown">
-                    <code id="config-template">#!name=Shane 托管配置 (Auto)
-#!desc=自动同步云端规则 + 本地私有订阅
-#!author=Shane
-
-[General]
-# 引用云端配置
-#!include = https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
-
-[Proxy Group]
-# 填入您的订阅链接
-我的订阅 = select, policy-path=在此处粘贴机场订阅链接, update-interval=43200, no-alert=0, hidden=0, include-all-proxies=0</code>
-                    <button class="copy-btn" onclick="copyTemplate()" title="复制模板">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 1.1 进阶：自动更新 (Advanced) -->
-        <section id="advanced" class="card">
-            <div class="card-header">
-                <div class="icon-box bg-blue">
-                    <i class="fa-solid fa-sync"></i>
-                </div>
-                <h2>1.1 进阶：自动更新工作流</h2>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-success">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <div>
-                        <strong>最佳实践</strong><br>
-                        使用此方法，可以让 Surge <strong>自动更新规则与脚本</strong> (如 TikTok 修复)，同时<strong>永远不会覆盖</strong>您的私有订阅链接。
+                    <div class="code-block">
+                        <code
+                            id="config-url">https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf</code>
+                        <button class="copy-btn" onclick="copyConfigUrl()" title="复制链接">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
                     </div>
-                </div>
-                <div class="steps">
-                    <h3>操作步骤</h3>
-                    <ol>
-                        <li>在 Surge 中 <strong>创建新配置</strong> -> <strong>创建文本配置</strong>。</li>
-                        <li>清空内容，粘贴下方模板：</li>
+                    <ol start="3">
+                        <li>下载成功后，打开配置。找到 <code>策略组</code> -> <code>我的订阅</code>。</li>
+                        <li>编辑该策略组，将 <code>policy-path=INSERT_YOUR_LINK_HERE</code> 中的英文替换为您购买的<strong>机场订阅链接</strong>。
+                        </li>
+                        <li>保存并选择该配置。</li>
                     </ol>
                 </div>
-                <div class="code-block dropdown">
-                    <code id="template-code">#!name=Shane 私有配置 (Local)
-#!desc=引用云端逻辑，覆盖私有订阅
-
-[General]
-# 引用云端主配置 (自动保持最新)
-#!include = https://raw.githubusercontent.com/cheeseher/MyProxy/main/By-Shane.conf
-
-[Proxy Group]
-# 覆盖"我的订阅"策略组，填入你的真实订阅链接
-我的订阅 = select, policy-path=您的机场订阅链接, update-interval=0, no-alert=0, hidden=0, include-all-proxies=0</code>
-                    <button class="copy-btn" onclick="copyTemplate()" title="复制模板">
-                        <i class="fa-regular fa-copy"></i>
-                    </button>
-                </div>
-                <p class="mt-2 small text-muted">包含 <code>#!include</code> 语句，Surge 会自动合并云端规则与本地订阅。</p>
             </div>
         </section>
 
