@@ -1,0 +1,12 @@
+#!name=订阅信息面板 (Subscription Info)
+#!desc=在 Surge 首页显示机场订阅的流量使用情况及过期时间。
+#!category=Panel
+
+[Panel]
+订阅信息 = script-name=SubscriptionInfo, update-interval=600
+
+[Script]
+SubscriptionInfo = type=generic, script-path=https://raw.githubusercontent.com/cheeseher/MyProxy/main/SubscriptionInfo.js
+
+# 注意：为了确保脚本能被 Surge 正确加载，我们将脚本单独放在根目录的 SubscriptionInfo.js 文件中。
+# 这样用户安装模块时，Surge 会自动去 GitHub 拉取这个 JS 文件。
