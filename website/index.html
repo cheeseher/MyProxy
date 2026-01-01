@@ -335,19 +335,29 @@
             <div class="card-body">
                 <ul id="git-changelog" class="step-list">
                     <li class="highlight">
-                        <i class="fa-solid fa-spinner fa-spin"></i> 正在加载最新更新记录... (Loading...)
+                        <i class="fa-solid fa-spinner fa-spin"></i> 正在加载历史版本... (Loading...)
                     </li>
                 </ul>
+                <div id="changelog-actions" style="text-align: center; margin-top: 1rem; display: none;">
+                    <button class="btn btn-secondary btn-sm" onclick="toggleChangelog()"
+                        style="padding: 0.4rem 1rem; font-size: 0.9rem;">
+                        <i class="fa-solid fa-chevron-down"></i> 查看完整历史
+                    </button>
+                </div>
             </div>
         </section>
 
         <!-- GitHub API Changelog Script -->
         <script>
+            let isExpanded = false;
+
             document.addEventListener('DOMContentLoaded', function () {
                 const repo = 'cheeseher/MyProxy';
                 const container = document.getElementById('git-changelog');
+                const actions = document.getElementById('changelog-actions');
 
-                fetch(`https://api.github.com/repos/${repo}/commits?per_page=5`)
+                // Fetch up to 100 commits to emulate "all" history
+                fetch(`https://api.github.com/repos/${repo}/commits?per_page=100`)
                     .then(response => {
                         if (!response.ok) throw new Error('Network response was not ok');
                         return response.json();
@@ -355,19 +365,32 @@
                     .then(commits => {
                         container.innerHTML = ''; // Clear loading
 
-                        commits.forEach(commit => {
+                        if (commits.length === 0) {
+                            container.innerHTML = '<li>暂无更新记录</li>';
+                            return;
+                        }
+
+                        commits.forEach((commit, index) => {
                             const date = new Date(commit.commit.author.date);
                             const dateStr = date.toLocaleDateString('zh-CN', {
                                 year: 'numeric',
                                 month: '2-digit',
                                 day: '2-digit'
                             });
-                            const message = commit.commit.message.split('\n')[0]; // First line only
+                            // Get first line of message
+                            const message = commit.commit.message.split('\n')[0];
 
                             const li = document.createElement('li');
-                            // Simple heuristic: latest commit gets 'highlight' class
-                            if (commits.indexOf(commit) === 0) {
+
+                            // Highlight the very latest commit
+                            if (index === 0) {
                                 li.classList.add('highlight');
+                            }
+
+                            // Hide commits after the 5th one (index 0-4 are visible)
+                            if (index >= 5) {
+                                li.classList.add('changelog-hidden');
+                                li.style.display = 'none'; // Default hidden
                             }
 
                             li.innerHTML = `
@@ -376,18 +399,41 @@
                             `;
                             container.appendChild(li);
                         });
+
+                        // Show expand button if we have more than 5 commits
+                        if (commits.length > 5) {
+                            actions.style.display = 'block';
+                        }
                     })
                     .catch(error => {
                         console.error('Error fetching commits:', error);
                         container.innerHTML = `
                             <li class="highlight">
                                 <strong>更新记录获取失败</strong><br>
-                                请访问 GitHub 查看最新记录：<br>
-                                <a href="https://github.com/${repo}/commits/main" target="_blank" style="color: #007AFF; text-decoration: none;">Click here to view on GitHub</a>
+                                请访问 GitHub 查看：<br>
+                                <a href="https://github.com/${repo}/commits/main" target="_blank">Click here to view on GitHub</a>
                             </li>
                         `;
                     });
             });
+
+            function toggleChangelog() {
+                const hiddenItems = document.querySelectorAll('.changelog-hidden');
+                const btn = document.querySelector('#changelog-actions button');
+                const icon = btn.querySelector('i');
+
+                isExpanded = !isExpanded;
+
+                hiddenItems.forEach(item => {
+                    item.style.display = isExpanded ? 'list-item' : 'none';
+                });
+
+                if (isExpanded) {
+                    btn.innerHTML = '<i class="fa-solid fa-chevron-up"></i> 收起历史';
+                } else {
+                    btn.innerHTML = '<i class="fa-solid fa-chevron-down"></i> 查看完整历史';
+                }
+            }
         </script>
 
         <!-- 6. Q&A -->
