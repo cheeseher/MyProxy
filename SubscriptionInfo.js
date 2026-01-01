@@ -6,7 +6,7 @@
  */
 
 (async () => {
-    let url = $argument;
+    let url = $argument.trim();
 
     if (!url) {
         $done({
@@ -18,7 +18,11 @@
         return;
     }
 
-    $httpClient.head(url, function (error, response, data) {
+    let headers = {
+        "User-Agent": "Surge/5.0"
+    };
+
+    $httpClient.head({ url: url, headers: headers }, function (error, response, data) {
         if (error) {
             $done({
                 title: "订阅信息",
