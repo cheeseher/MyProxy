@@ -1,9 +1,15 @@
 #!name=订阅信息面板 (Subscription Info)
 #!desc=在 Surge 首页显示机场订阅的流量使用情况及过期时间。
 #!category=Panel
+#!arguments=订阅链接:https://example.com/subs
+#!arguments-desc=请在此处填入您的机场订阅链接 (Subscription URL)。
 
 [Panel]
 订阅信息 = script-name=SubscriptionInfo, update-interval=600
+
+[Script]
+# argument=$0 代表将模块的参数传入脚本
+SubscriptionInfo = type=generic, script-path=https://raw.githubusercontent.com/cheeseher/MyProxy/main/SubscriptionInfo.js, argument=$0
 
 [Script]
 SubscriptionInfo = type=generic, script-path=https://raw.githubusercontent.com/cheeseher/MyProxy/main/SubscriptionInfo.js
