@@ -333,20 +333,62 @@
                 <h2>5. 更新日志 (Changelog)</h2>
             </div>
             <div class="card-body">
-                <ul class="step-list">
+                <ul id="git-changelog" class="step-list">
                     <li class="highlight">
-                        <strong>2025-12-31 (v1.1.0)</strong><br>
-                        ✅ 修复中银香港/汇丰 (IJ0050) 登录问题<br>
-                        ✅ 修复 Crypto/TikTok 规则更新超时问题 (Switch to GitHub Raw)<br>
-                        ✨ 新增 TikTokUnlock 模块与加密货币策略组
-                    </li>
-                    <li>
-                        <strong>2025-12-30 (v1.0.0)</strong><br>
-                        🚀 初始版本发布 (双端适配、Auto-Update 架构)
+                        <i class="fa-solid fa-spinner fa-spin"></i> 正在加载最新更新记录... (Loading...)
                     </li>
                 </ul>
             </div>
         </section>
+
+        <!-- GitHub API Changelog Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const repo = 'cheeseher/MyProxy';
+                const container = document.getElementById('git-changelog');
+
+                fetch(`https://api.github.com/repos/${repo}/commits?per_page=5`)
+                    .then(response => {
+                        if (!response.ok) throw new Error('Network response was not ok');
+                        return response.json();
+                    })
+                    .then(commits => {
+                        container.innerHTML = ''; // Clear loading
+
+                        commits.forEach(commit => {
+                            const date = new Date(commit.commit.author.date);
+                            const dateStr = date.toLocaleDateString('zh-CN', {
+                                year: 'numeric',
+                                month: '2-digit',
+                                day: '2-digit'
+                            });
+                            const message = commit.commit.message.split('\n')[0]; // First line only
+
+                            const li = document.createElement('li');
+                            // Simple heuristic: latest commit gets 'highlight' class
+                            if (commits.indexOf(commit) === 0) {
+                                li.classList.add('highlight');
+                            }
+
+                            li.innerHTML = `
+                                <strong>${dateStr}</strong><br>
+                                ${message}
+                            `;
+                            container.appendChild(li);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching commits:', error);
+                        container.innerHTML = `
+                            <li class="highlight">
+                                <strong>更新记录获取失败</strong><br>
+                                请访问 GitHub 查看最新记录：<br>
+                                <a href="https://github.com/${repo}/commits/main" target="_blank" style="color: #007AFF; text-decoration: none;">Click here to view on GitHub</a>
+                            </li>
+                        `;
+                    });
+            });
+        </script>
 
         <!-- 6. Q&A -->
         <section id="qa" class="card">
