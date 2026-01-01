@@ -11,8 +11,7 @@
 # argument=$0 代表将模块的参数传入脚本
 SubscriptionInfo = type=generic, script-path=https://raw.githubusercontent.com/cheeseher/MyProxy/main/SubscriptionInfo.js, argument=$0
 
-[Script]
-SubscriptionInfo = type=generic, script-path=https://raw.githubusercontent.com/cheeseher/MyProxy/main/SubscriptionInfo.js
+
 
 # 注意：为了确保脚本能被 Surge 正确加载，我们将脚本单独放在根目录的 SubscriptionInfo.js 文件中。
 # 这样用户安装模块时，Surge 会自动去 GitHub 拉取这个 JS 文件。
