@@ -1,0 +1,5 @@
+# Zoom 自托管规则
+# 包含 Zoom 及其相关域名
+DOMAIN-SUFFIX,zoom.us
+DOMAIN-SUFFIX,zoom.com
+DOMAIN-KEYWORD,zoom
