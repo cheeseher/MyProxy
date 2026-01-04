@@ -135,3 +135,13 @@ IP-CIDR,24.199.123.28/32,no-resolve
 IP-CIDR,64.23.132.171/32,no-resolve
 IP-ASN,14061,no-resolve
 IP-ASN,20473,no-resolve
+
+# 补全: 剩余 AI 域名 (Gemini, Midjourney, Poe, HuggingFace)
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-KEYWORD,gemini
+DOMAIN-SUFFIX,midjourney.com
+DOMAIN-SUFFIX,midjourney.ai
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,huggingface.co

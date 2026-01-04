@@ -1,0 +1,5 @@
+# 自定义/私人规则
+# 包含个人 NAS、公司内网等特殊域名
+
+# 群晖办公 (Private NAS)
+DOMAIN-SUFFIX,iytena.com
