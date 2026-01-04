@@ -1,0 +1,37 @@
+# 金融与银行自托管规则
+# 包含香港、中国及国际主要银行与证券服务
+# 策略: 全局直连
+
+# BOCHK & BOC
+DOMAIN-SUFFIX,bochk.com
+DOMAIN-SUFFIX,boc.cn
+
+# HSBC
+DOMAIN-SUFFIX,hsbc.com.hk
+DOMAIN-SUFFIX,hsbc.com
+
+# ZA Bank
+DOMAIN-SUFFIX,za.group
+
+# Citibank & SC
+DOMAIN-SUFFIX,citibank.com.hk
+DOMAIN-SUFFIX,sc.com
+
+# Futu (富途)
+DOMAIN-SUFFIX,futunn.com
+DOMAIN-SUFFIX,futu5.com
+DOMAIN-SUFFIX,futuhk.com
+
+# Fosun (复星)
+DOMAIN-SUFFIX,fosun.com
+DOMAIN-SUFFIX,fosunwealth.com
+
+# YLZQ (盈立)
+DOMAIN-SUFFIX,ylzq.com.hk
+DOMAIN-SUFFIX,yxzq.com
+
+# uSmart (盈立/有鱼)
+DOMAIN-SUFFIX,u-smart.com.hk
+DOMAIN-SUFFIX,usmart.hk
+DOMAIN-SUFFIX,usmart.sg
+DOMAIN-SUFFIX,usmartsecurities.com
