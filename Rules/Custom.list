@@ -3,3 +3,9 @@
 
 # 群晖办公 (Private NAS)
 DOMAIN-SUFFIX,iytena.com
+
+# PikPak
+DOMAIN-SUFFIX,mypikpak.com
+DOMAIN-SUFFIX,pikpak.net
+DOMAIN-SUFFIX,pikpak.me
+DOMAIN-SUFFIX,pikpakdrive.com
