@@ -1,0 +1,15 @@
+# Google Gemini & AI Rules
+# Goal: Ensure Gemini traffic uses the same IP/Node as Google Search to avoid verification loops
+# Route to: 节点选择 (Same as Google)
+
+DOMAIN,ai.google.dev
+DOMAIN,alkalimakersuite-pa.clients6.google.com
+DOMAIN-KEYWORD,gemini
+DOMAIN-KEYWORD,generativelanguage
+DOMAIN-SUFFIX,bard.google.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN-SUFFIX,generativeai.google
+DOMAIN-SUFFIX,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,deepmind.com
+DOMAIN-SUFFIX,deepmind.google
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com
