@@ -6,7 +6,9 @@
 # DOMAIN-KEYWORD: 4
 # DOMAIN-SUFFIX: 196
 # TOTAL: 201
+DOMAIN,monitor-frontend-collector.a.bybit-aws.com
 DOMAIN,token-api.metaswap.codefi.network
+DOMAIN-KEYWORD,bybit
 DOMAIN-SUFFIX,1inch.io
 DOMAIN-SUFFIX,1ml.com
 DOMAIN-SUFFIX,aave.com
