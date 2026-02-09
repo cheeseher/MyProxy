@@ -214,3 +214,5 @@ DOMAIN-KEYWORD,binance
 DOMAIN-KEYWORD,huobi
 DOMAIN-KEYWORD,metamask
 DOMAIN-KEYWORD,okx
+# Binance App Dependencies (统计和配置服务)
+DOMAIN-SUFFIX,appsflyersdk.com
